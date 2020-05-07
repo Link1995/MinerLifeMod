@@ -34,13 +34,9 @@ public class ModEventSubscriber
 				// .filter(block -> needsItemBlock(block))
 				// Register the BlockItem for the block
 				.forEach(block -> {
-					// Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
 					final Item.Properties properties = new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP);
-					// Create the new BlockItem with the block and it's properties
 					final BlockItem blockItem = new BlockItem(block, properties);
-					// Set the new BlockItem's registry name to the block's registry name
 					blockItem.setRegistryName(block.getRegistryName());
-					// Register the BlockItem
 					registry.register(blockItem);
 				});
 		LOGGER.debug("Registered BlockItems");
@@ -49,7 +45,6 @@ public class ModEventSubscriber
 	@SubscribeEvent
 	public static void onModConfigEvent(final ModConfig.ModConfigEvent event) {
 		final ModConfig config = event.getConfig();
-		// Rebake the configs when they change
 		if (config.getSpec() == ConfigHolder.CLIENT_SPEC) {
 			ConfigHelper.bakeClient(config);
 			LOGGER.debug("Baked client config");
