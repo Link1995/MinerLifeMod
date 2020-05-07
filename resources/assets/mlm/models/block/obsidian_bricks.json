@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "MinerLifeMod:block/obsidian_bricks"
+        "all": "minerslifemod:block/obsidian_bricks"
     }
 }
